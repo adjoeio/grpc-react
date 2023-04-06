@@ -1,0 +1,25 @@
+FROM node:18-alpine3.15 as build
+
+RUN apk add --no-cache protoc
+
+WORKDIR /app
+
+ENV protoc_gen_grpc_web=./node_modules/.bin/protoc-gen-grpc-web
+
+COPY ./client/package.json .
+COPY ./client/yarn.lock .
+COPY ./proto/greeting.proto .
+
+RUN yarn install
+
+RUN mkdir -p ./src/proto
+RUN protoc -I=. greeting.proto \
+  --plugin=protoc-gen-grpc-web=${protoc_gen_grpc_web} \
+  --js_out=import_style=commonjs:./src \
+  --grpc-web_out=import_style=typescript,mode=grpcwebtext:./src
+
+
+COPY ./client . 
+
+EXPOSE 8081
+CMD ["yarn", "start"]docker
