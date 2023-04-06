@@ -1,8 +1,13 @@
-## Run
+## Description
 
 This is an example repo to call a grpc service from a react client, inspired by [this this repo](https://github.com/norbjd/grpc-web-nginx-envoy)
 
-To run the stack, just run:
+1. client is on port `8081` and calls Envoy proxy on port `8000`
+2. envoy proxy on port `8000` calls grpc service on port `50051`
+
+## Run
+
+To run the stack:
 
 ```
 docker-compose build
