@@ -1,5 +1,0 @@
-local 8081 -> 8000
-envoy proxy 8000 -> 50051
-grpc service 50051
-
-https://github.com/norbjd/grpc-web-nginx-envoy/tree/without-nginx
