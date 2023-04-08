@@ -1,8 +1,8 @@
 {
   "name": "grpc-web-simple-example",
   "version": "0.1.0",
-  "description": "gRPC-Web simple example",
-  "main": "server/server.js",
+  "description": "calling a gRPC service from react application",
+  "main": "server.js",
   "devDependencies": {
     "@grpc/grpc-js": "^1.5.9",
     "@grpc/proto-loader": "~0.5.4",
