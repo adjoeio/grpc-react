@@ -25,5 +25,5 @@ Hello {entered_name}!
 I'm using create-react-app with typescript and grpc-web, grpc & proto generated with bellow command in the root:
 
 ```
-./proto-gen.sh
+./proto-gen-grpc-web.sh
 ```
